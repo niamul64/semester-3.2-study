@@ -1,0 +1,17 @@
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(13,OUTPUT); //(Pin number, Status [INPUT/OUTPUT])
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+   digitalWrite(13,HIGH);// (Pin number, Mode[HIGH=1, 5 volt/LOW=0, 0 volt])
+  // in the above line, pin 13 is HIGH
+    delay(2000); // (milisecond)
+  //-->After 1 second, 
+  digitalWrite(13,LOW); 
+  //in the above line, pin 13 is LOW here
+  delay(2000); //(milisecond)
+ //-->After 1 second,
+}

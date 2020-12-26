@@ -1,0 +1,23 @@
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+Serial.print(123456);
+Serial.println();
+Serial.print(1.98765);
+Serial.println();
+Serial.print('A');
+Serial.println();
+Serial.print("hello world");
+Serial.println();
+Serial.print(10,BIN);
+Serial.println();
+Serial.print(10,HEX);
+Serial.println();
+Serial.print(10,OCT);
+Serial.println();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
