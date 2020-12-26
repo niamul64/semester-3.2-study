@@ -1,0 +1,160 @@
+student id: 17201012
+
+
+set-A question 6:ANS:
+
+code:
+
+
+ 
+f = @(x) (3*exp(2.5*x)+sin(x));
+f_prime=@(x) (7.5*exp(2.5*x)+cos(x));
+
+
+x_arry=[0,1,2];
+value_arry=[];
+
+
+#given
+x=2.12;
+h=2;
+x_mu_h=x-h;
+#given end
+
+
+# given equ = 3*exp(2.5*x)+2;
+# or equ = 3*e^(2.5*x)+2;
+
+y1= f(x); #y1= f(x)
+y2=f(x_mu_h);
+
+
+
+
+
+
+BDD= (y1-y2)/h ;
+value_arry=[value_arry,BDD];
+
+disp (['The value for x0 of BDD  is : ', num2str(BDD)])
+
+#again for x1 given
+
+x=4.12;
+h=2;
+x_mu_h=x-h;
+#given end
+
+
+# given equ = 3*exp(2.5*x)+2;
+# or equ = 3*e^(2.5*x)+2;
+
+y1= f(x); #y1= f(x)
+y2=f(x_mu_h);
+
+
+
+
+
+
+BDD= (y1-y2)/h ;
+value_arry=[value_arry,BDD];
+
+disp (['The value for x1 of BDD  is : ', num2str(BDD)])
+
+#again for x2 given
+
+x=6.12;
+h=2;
+x_mu_h=x-h;
+#given end
+
+
+# given equ = 3*exp(2.5*x)+2;
+# or equ = 3*e^(2.5*x)+2;
+
+y1= f(x); #y1= f(x)
+y2=f(x_mu_h);
+
+
+
+BDD= (y1-y2)/h ;
+value_arry=[value_arry,BDD];
+
+disp (['The value for x2 of BDD  is : ', num2str(BDD)])
+
+
+#ploting
+
+
+
+plot(x_arry,value_arry, '--')#for ploting, time is x #axis value and location is y axis value ,in side ‘-- ’ plotting #sign 
+
+xlabel('x_arry'); # label
+
+ylabel('value_arry'); #lebel
+
+
+
+set-B question 6:ANS:
+
+code:
+
+
+x1=5;
+f = @(x) (2*((x)^(0.5))+x^(0.5)-5);
+
+fprime = @(x) ((1/x^(0.5))+0.5*(1/x^(0.5)));
+
+iter=0;
+agerX=0;
+sigDigit=0;
+
+root_arr=[];
+error_arr=[];
+
+while iter<10
+    root_arr=[root_arr,x1 ];
+    agerX=x1;
+    iter=iter+1;
+    x2=x1-f(x1)/fprime(x1);
+    x1=x2;
+    rele=abs(((x2-agerX)/x2)*100);
+    
+
+    error_arr=[error_arr,rele ];
+    
+if rele < .005
+    sigDigit=4;
+
+elseif rele < .05
+    sigDigit=3;
+
+elseif rele<0.5
+    sigDigit=2;
+    
+elseif rele<5
+    sigDigit=1;
+
+else
+    sigDigit=0;
+endif
+    
+    disp (['After iteration ', num2str(iter), ' the root is: ', num2str(x2),' significat digit:',num2str(sigDigit),' error:', num2str(rele)]);
+end
+
+
+matrix=[]
+
+plot(root_arr,error_arr, '--g')#for ploting, time is x #axis value and location is y axis value ,in side ‘-- ’ plotting #sign 
+
+xlabel('root'); # label
+
+ylabel('Error'); #lebel
+
+
+
+
+
+
+
